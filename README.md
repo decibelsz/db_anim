@@ -1,4 +1,4 @@
-# norrisops
+# db_anim
 animation script
 
 ## Sistema de animações para players com sincronia de objetos locais (não networked)
