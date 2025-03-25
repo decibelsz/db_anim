@@ -17,7 +17,7 @@ local animationChecker = function()
             local source = GetPlayerServerId(NetworkGetPlayerIndexFromPed(nped))
             if DecorExistOn(nped, 'CURRENT_ANIM') then
                 local currentAnim = DecorGetInt(nped, 'CURRENT_ANIM')
-                local animName = Config.hashToUint8Reference[currentAnim]
+                local animName = Config.order[currentAnim]
                 local distance = #(playerCoords - GetEntityCoords(nped))
 
                 if Config.list[animName] and distance <= Config.loadDistance then

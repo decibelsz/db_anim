@@ -1,13 +1,13 @@
-RegisterNetEvent('animation:start', function(uInt8)
+RegisterNetEvent('animation:start', function(id)
     assert(source, 'animation:start(): missing args')
-    assert(uInt8, 'animation:start(): missing args')
+    assert(id, 'animation:start(): missing args')
 
-    local name = Config.hashToUint8Reference[uInt8]
+    local name = Config.order[id]
     local data = Config.list[name]
 
     assert(data, 'animation:start(): tried to play invalid animation')
 
-    data.uInt8 = uInt8
+    data.id = id
 
     local animation       = Animation(data)
     local animationLoaded = animation:load(5000)

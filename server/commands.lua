@@ -10,13 +10,13 @@ local runCommand = function(source, args)
     end
 
     local ped = GetPlayerPed(source)
-    local hp = GetEntityHealth(ped)
+    local hp  = GetEntityHealth(ped)
 
     if (hp <= Config.minHealth) then
         return TriggerClientEvent('Notify', source, 'negado', 'Você não pode fazer isso morto.')
     end
 
-    TriggerClientEvent('animation:start', source, hashToUint8(name))
+    TriggerClientEvent('animation:start', source, Config.list[name].index)
 end
 
 RegisterCommand(Config.command, runCommand)

@@ -14,7 +14,7 @@ StopAnimTask = StopAnimTask
 DecorRemove = DecorRemove
 ---@class Animation
 ---@field ped number
----@field uInt8 number
+---@field id number
 ---@field animDictionary string
 ---@field animationName string
 ---@field blendInSpeed number
@@ -38,7 +38,7 @@ DecorRegister('CURRENT_ANIM', 3)
 ---@return Animation
 function Animation:__init(data)
     self.ped            = data.entity or PlayerPedId()
-    self.uInt8          = data.uInt8
+    self.id             = data.id
     self.animDictionary = data.animDictionary
     self.animationName  = data.animationName
     self.blendInSpeed   = data.blendInSpeed or 1.0
@@ -92,7 +92,7 @@ function Animation:play()
         self.lockZ
     )
 
-    DecorSetInt(self.ped, 'CURRENT_ANIM', self.uInt8)
+    DecorSetInt(self.ped, 'CURRENT_ANIM', self.id)
 
     if self.prop then
         self.object = self.prop:create()

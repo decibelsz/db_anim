@@ -2,7 +2,6 @@ Config = {}
 Config.command = 'animacao'
 Config.minHealth = 101
 Config.debug = true
-
 Config.loadDistance = 50.0
 Config.list = {
     ['beberagua'] = {
@@ -29,8 +28,3 @@ Config.list = {
         }
     }
 }
-
-Config.hashToUint8Reference = {}
-for k in pairs(Config.list) do
-    Config.hashToUint8Reference[hashToUint8(k)] = k
-end

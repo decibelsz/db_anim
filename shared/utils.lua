@@ -18,10 +18,19 @@ class = function(base)
     return cls
 end
 
-hashToUint8 = function(str)
-    local hash = 0
-    for i = 1, #str do
-        hash = (hash + string.byte(str, i)) % 256
-    end
-    return hash
+repeat Wait(1) until Config
+
+Config.order = {}
+
+for name in pairs(Config.list) do
+    table.insert(Config.order, name)
+end
+
+table.sort(Config.order)
+
+local count = 0
+for _, name in pairs(Config.order) do
+    count = count + 1
+    Config.list[name].index = count
+    Config.order[count] = name
 end
